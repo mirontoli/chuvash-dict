@@ -32,8 +32,21 @@
             .then(function (xhr) {
                 var s = xmlToJson(xhr.responseText);
                 var t = JSON.stringify(s.export);
+                if (!s.export) {
+                    showError("The result from samah.chv.su could not be read");
+                }
+                else if (s.export.error) {
+                    var error = s.export.error["#text"];
+                    if (error === "--Not Found-") {
+                        showError("Oops, samah.chv.su says there is no such word!");
+                    } else {
+                        showError("Hmpf. We've got an error from samah.chv.su. The code is: " + error);
+                    }
+                }
                 showLoading(false);
                 //var result = s.export.samahsem[0].samah["#text"];
+            }, function (xhr) {
+                showError("Some error occured in the transmission of the data");
             });
     }
     
@@ -42,4 +55,9 @@
         progressElement.style.display = visible ? "block" : "none";
     }
 
+    function showError(msg) {
+        var errorElement = document.querySelector("#error-section");
+        WinJS.Utilities.removeClass(errorElement, "win-hidden");
+        errorElement.innerText = msg;
+    }
 })();

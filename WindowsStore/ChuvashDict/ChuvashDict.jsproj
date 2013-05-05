@@ -62,6 +62,7 @@
     <Content Include="images\storelogo.png" />
     <Content Include="js\default.js" />
     <Content Include="css\default.css" />
+    <Content Include="js\models.js" />
     <Content Include="js\navigator.js" />
     <Content Include="js\xml2json.js" />
     <Content Include="pages\detail\detail.css" />

@@ -14,6 +14,3 @@
         }, { Translations: [] })
     });
 })();
-var Word = function () {
-    
-}

@@ -7,6 +7,7 @@
 
     var app = WinJS.Application;
     var activation = Windows.ApplicationModel.Activation;
+    var nav = WinJS.Navigation;
 
     app.onactivated = function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {
@@ -17,19 +18,17 @@
                 // TODO: This application has been reactivated from suspension.
                 // Restore application state here.
             }
-            args.setPromise(WinJS.UI.processAll());
-            var textSearch = document.getElementById("textSearch");
-            var btnSearch = document.getElementById("btnSearch");
-            var resultArea = document.getElementById("resultArea");
-            btnSearch.addEventListener("click", function () {
-                WinJS.xhr({ url: "http://samah.chv.su/cgi-bin/_export.cgi?id=%D1%87%C4%83%D0%B2%D0%B0%D1%88" })
-                    .then(function (xhr) {
-                        var s = xmlToJson(xhr.responseText);
-
-                        resultArea.innerText = s.export.samahsem[0].samah["#text"];
-                });
-                
-            });
+            if (app.sessionState.history) {
+                nav.history = app.sessionState.history;
+            }
+            args.setPromise(WinJS.UI.processAll().then(function () {
+                if (nav.location) {
+                    nav.history.current.initialPlaceholder = true;
+                    return nav.navigate(nav.location, nav.state);
+                } else {
+                    return nav.navigate(Application.navigator.home);
+                }
+            }));
         }
     };
 

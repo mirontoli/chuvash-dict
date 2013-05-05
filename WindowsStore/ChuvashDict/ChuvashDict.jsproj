@@ -60,9 +60,19 @@
     <Content Include="images\smalllogo.png" />
     <Content Include="images\splashscreen.png" />
     <Content Include="images\storelogo.png" />
+    <Content Include="js\app.js" />
     <Content Include="js\default.js" />
     <Content Include="css\default.css" />
+    <Content Include="js\navigator.js" />
     <Content Include="js\xml2json.js" />
+    <Content Include="pages\detail\detail.css" />
+    <Content Include="pages\detail\detail.html" />
+    <Content Include="pages\detail\detail.js" />
+    <Content Include="pages\home\home.css" />
+    <Content Include="pages\home\home.html" />
+    <Content Include="pages\home\home.js" />
+    <Content Include="words\words-part001.csv" />
+    <Content Include="words\words.csv" />
     <None Include="ChuvashDict_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,22 @@
+﻿/*.homepage {
+    margin-left: 60px;
+}
+.win-backbutton {
+    float: left;
+}
+.pagetitle {
+
+}*/
+#wordCloud { height: 100%; }
+#wordCloud .win-surface {  }
+#wordCloud .win-item {
+    box-sizing: border-box;
+    background-color: #6294ad;
+    color: white;
+    width: 200px;
+    height: 75px;
+    line-height: 75px;
+    padding: 4px 8px;
+    box-sizing: border-box;
+    text-align: center;
+}

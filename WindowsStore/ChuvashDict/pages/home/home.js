@@ -63,14 +63,3 @@
 
 })();
 
-
-function tmp(key) {
-    return;
-    var k = encodeURI("http://samah.chv.su/cgi-bin/_export.cgi?id=" + key);
-    WinJS.xhr({ url: k })
-        .then(function (xhr) {
-            var s = xmlToJson(xhr.responseText);
-
-            var result = s.export.samahsem[0].samah["#text"];
-        });
-}

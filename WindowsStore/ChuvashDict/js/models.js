@@ -5,12 +5,13 @@
     var nav = WinJS.Navigation;
 
     WinJS.Namespace.define("Application.models", {
-        Translation: WinJS.Class.define(function() {
-                
+        Translation: WinJS.Class.define(function(word, explanation) {
+            this.word = word;
+            this.explanation = explanation;
         },
-            { Word: "", Explanation: "" }
+            { word: "", explanation: "" }
         ),
         Book: WinJS.Class.define(function() {
-        }, { Translations: [] })
+        }, { translations: [] })
     });
 })();

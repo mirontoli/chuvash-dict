@@ -14,7 +14,7 @@
         ready: function (element, options) {
 
 
-            exampleDataBind();
+            bindWordCloud();
 
         },
 
@@ -24,7 +24,7 @@
 
     });
     // This function is run once on page load
-    function exampleDataBind() {
+    function bindWordCloud() {
         // Add WinJS Control For Listview
         var wordCloud = document.getElementById("wordCloud").winControl;
         wordCloud.template = document.getElementById("wordTemplate");
@@ -49,17 +49,6 @@
 
 
     }
-    //WinJS.Navigation.addEventListener("navigating", function (e) {
-    //    //window.location = e.detail.location;
-    //    //return;
-    //    WinJS.UI.Animation.exitPage().then(function () {
-    //        //WinJS.Utilities.empty(elem);
-    //        WinJS.UI.Pages.render(e.detail.location)
-    //            .then(function () {
-    //                return WinJS.UI.Animation.enterPage();
-    //            });
-    //    });
-    //});
 
 })();
 

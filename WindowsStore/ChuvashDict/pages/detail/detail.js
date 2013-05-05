@@ -7,6 +7,7 @@
     var ui = WinJS.UI;
 
     var progressElement;
+    var list;
     
     WinJS.UI.Pages.define("/pages/detail/detail.html", {
         // This function is called whenever a user navigates to this page. It
@@ -31,17 +32,18 @@
         WinJS.xhr({ url: k })
             .then(function (xhr) {
                 var s = xmlToJson(xhr.responseText);
-                var t = JSON.stringify(s.export);
                 if (!s.export) {
                     showError("The result from samah.chv.su could not be read");
                 }
-                else if (s.export.error) {
+                else if (s.export.error && s.export.error["#text"]) {
                     var error = s.export.error["#text"];
                     if (error === "--Not Found-") {
                         showError("Oops, samah.chv.su says there is no such word!");
                     } else {
                         showError("Hmpf. We've got an error from samah.chv.su. The code is: " + error);
                     }
+                } else if (s.export.samahsem) {
+                    showResult(s.export.samahsem);
                 }
                 showLoading(false);
                 //var result = s.export.samahsem[0].samah["#text"];
@@ -59,5 +61,25 @@
         var errorElement = document.querySelector("#error-section");
         WinJS.Utilities.removeClass(errorElement, "win-hidden");
         errorElement.innerText = msg;
+    }
+    function showResult(rawWords) {
+        var translations = [];
+        var len = rawWords.length;
+        var i = 0;
+        for (i; i < len; i++) {
+            translations.push(new Application.models.Translation(rawWords[i].samah["#text"], rawWords[i].anla["#text"]));
+        }
+        bindExplanationList(translations);
+    }
+    // This function is run once on page load
+    function bindExplanationList(translations) {
+        // Add WinJS Control For Listview
+        var explanationList = document.getElementById("explanationList").winControl;
+        explanationList.itemTemplate = document.getElementById("explanationTemplate");
+        explanationList.selectionMode = "single";
+
+        // Bind datas
+        var listItems = new WinJS.Binding.List(translations);;
+        explanationList.itemDataSource = listItems.dataSource;
     }
 })();

@@ -10,6 +10,7 @@
     <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
     
     <link href="/pages/detail/detail.css" rel="stylesheet" />
+    <script src="/js/models.js"></script>
     <script src="/pages/detail/detail.js"></script>
 </head>
 <body>
@@ -22,10 +23,18 @@
             <progress></progress>
         </header>
         <section aria-label="Main content" role="main">
-            Explanations
+            <div id="explanationList" data-win-control="WinJS.UI.ListView">
+            </div>
             <section class="win-hidden" id="error-section"></section>
         </section>
         
+    </div>
+    
+    <!-- templates -->
+    <div id="explanationTemplate" data-win-control="WinJS.Binding.Template">
+        <div>
+            <div data-win-bind="innerHTML: explanation"></div>
+        </div>
     </div>
 </body>
 </html>

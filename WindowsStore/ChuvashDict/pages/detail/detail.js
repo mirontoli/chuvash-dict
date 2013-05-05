@@ -31,6 +31,7 @@
         WinJS.xhr({ url: k })
             .then(function (xhr) {
                 var s = xmlToJson(xhr.responseText);
+                var t = JSON.stringify(s.export);
                 showLoading(false);
                 //var result = s.export.samahsem[0].samah["#text"];
             });

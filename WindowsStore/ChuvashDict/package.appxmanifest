@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="31710AChuvashGuy.ChuvashDictionary" Version="1.0.0.1" Publisher="CN=7DE01106-6052-4BC6-81A9-E3BB3A3E80E6" />
+  <Identity Name="31710AChuvashGuy.ChuvashDictionary" Version="1.0.0.2" Publisher="CN=7DE01106-6052-4BC6-81A9-E3BB3A3E80E6" />
   <Properties>
     <DisplayName>Chuvash Dictionary</DisplayName>
     <PublisherDisplayName>A Chuvash Guy</PublisherDisplayName>

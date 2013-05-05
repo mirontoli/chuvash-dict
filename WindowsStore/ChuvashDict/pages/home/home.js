@@ -10,7 +10,6 @@
     //global words var
     var words = ["hej", "hå"];
     var wordCloud;
-    var bound = false;
 
     ui.Pages.define("/pages/home/home.html", {
 
@@ -56,7 +55,6 @@
                     return WinJS.Navigation.navigate("/pages/detail/detail.html", item.data);
                 });
             };
-            bound = true;
         });
 
 

@@ -31,6 +31,7 @@
         var k = encodeURI("http://samah.chv.su/cgi-bin/_export.cgi?id=" + word);
         WinJS.xhr({ url: k })
             .then(function (xhr) {
+                showLoading(false);
                 var s = xmlToJson(xhr.responseText);
                 if (!s.export) {
                     showError("The result from samah.chv.su could not be read");
@@ -45,9 +46,10 @@
                 } else if (s.export.samahsem) {
                     showResult(s.export.samahsem);
                 }
-                showLoading(false);
+                
                 //var result = s.export.samahsem[0].samah["#text"];
-            }, function (xhr) {
+            }, function (error) {
+                showLoading(false);
                 showError("Some error occured in the transmission of the data");
             });
     }
@@ -63,6 +65,9 @@
         errorElement.innerText = msg;
     }
     function showResult(rawWords) {
+        if (!Array.isArray(rawWords)) {
+            rawWords = [rawWords];
+        }
         var translations = [];
         var len = rawWords.length;
         var i = 0;
@@ -73,13 +78,20 @@
     }
     // This function is run once on page load
     function bindExplanationList(translations) {
+        var explanationHtml = "";
+        translations.forEach(function (t) {
+            var html = '<div class="explanation">' + t.explanation + '</div>';
+            explanationHtml += html;
+        });
+        var explanationList = document.getElementById("explanationList");
+        WinJS.Binding.processAll(explanationList, explanationHtml);
         // Add WinJS Control For Listview
-        var explanationList = document.getElementById("explanationList").winControl;
-        explanationList.itemTemplate = document.getElementById("explanationTemplate");
-        explanationList.selectionMode = "single";
+        //var explanationList = document.getElementById("explanationList").winControl;
+        //explanationList.itemTemplate = document.getElementById("explanationTemplate");
+        //explanationList.selectionMode = "single";
 
-        // Bind datas
-        var listItems = new WinJS.Binding.List(translations);;
-        explanationList.itemDataSource = listItems.dataSource;
+        //// Bind datas
+        //var listItems = new WinJS.Binding.List(translations);;
+        //explanationList.itemDataSource = listItems.dataSource;
     }
 })();

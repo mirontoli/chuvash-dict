@@ -1,6 +1,9 @@
 ﻿.detail .progress {
     display: none;
 }
+.detail [role=main] {
+    margin-left: 50px;
+}
 #error-section {
     font-size: 20px;
     color: tomato;

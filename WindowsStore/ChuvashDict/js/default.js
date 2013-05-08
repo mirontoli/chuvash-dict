@@ -41,5 +41,15 @@
         // args.setPromise().
     };
 
+    app.onsettings = function(e) {
+        e.detail.applicationcommands = {
+            // Add the Privacy statement command. 
+            //Follow the blog: http://geekswithblogs.net/comando/archive/2013/01/21/solving-the-myth-of-privacy-policy-in-javascript-windows-8.aspx
+            //Example: https://github.com/gamecook/super-jetroid-starter-kit/
+            priv: { title: "Privacy Policy", href: "/pages/privacy/privacy.html" }
+        };
+        WinJS.UI.SettingsFlyout.populateSettings(e);
+    };
+
     app.start();
 })();

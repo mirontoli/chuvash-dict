@@ -71,6 +71,9 @@
     <Content Include="pages\home\home.css" />
     <Content Include="pages\home\home.html" />
     <Content Include="pages\home\home.js" />
+    <Content Include="pages\privacy\privacy.css" />
+    <Content Include="pages\privacy\privacy.html" />
+    <Content Include="pages\privacy\privacy.js" />
     <Content Include="words\words-part001.csv" />
     <Content Include="words\words.csv" />
     <None Include="ChuvashDict_TemporaryKey.pfx" />

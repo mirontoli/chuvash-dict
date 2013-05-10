@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" StartPage="default.html">
-      <VisualElements DisplayName="Chuvash Dictionary" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="ChuvashDict" ForegroundText="light" BackgroundColor="#464646">
+      <VisualElements DisplayName="Chuvash Dictionary" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="Chuvash Dictionary. Chuvash to Russian and Russian to Chuvash. In the future it can be extended to more languages. Traditionally the most dictionaries are Chuvash-Russian. It doesn't mean it is only useful for Russian speaking people. If you are intrested in Chuvash, for now you must use Russian. In the future, other dictionary sources will be added." ForegroundText="light" BackgroundColor="#464646">
         <DefaultTile ShowName="allLogos" />
         <SplashScreen Image="images\splashscreen.png" />
       </VisualElements>

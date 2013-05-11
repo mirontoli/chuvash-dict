@@ -10,6 +10,12 @@
     var nav = WinJS.Navigation;
 
     app.onactivated = function (args) {
+        //set up the demos list (empty for now)
+        app.wordsList = null;
+
+        //start loading the words
+        app.wordsLoaded = loadWordsAsync();
+
         if (args.detail.kind === activation.ActivationKind.launch) {
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
                 // TODO: This application has been newly launched. Initialize
@@ -51,6 +57,21 @@
         };
         WinJS.UI.SettingsFlyout.populateSettings(e);
     };
+
+
+
+    function loadWordsAsync() {
+        var promise = WinJS.xhr({ url: "words/words.csv" });
+        promise.then(function (request) {
+            var words = request.responseText.split("\r\n");
+            app.wordsList = new WinJS.Binding.List(words);
+            //.createGrouped(function (i) { return i.group; }, function (i) { return i.group; })
+            //.createSorted(function (a, b) { return (a.toLowerCase() < b.toLowerCase() ? -1 : 1); });
+
+
+        });
+        return promise;
+    }
 
     app.start();
 })();

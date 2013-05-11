@@ -9,7 +9,7 @@
     var transfer = Windows.ApplicationModel.DataTransfer;
 
     //global words var
-    var words = ["hej", "hå"];
+    var words = app.words;
     var wordCloud;
 
     ui.Pages.define("/pages/home/home.html", {
@@ -42,22 +42,13 @@
         wordCloud.template = document.getElementById("wordTemplate");
         wordCloud.loadingBehavior = "incremental";
         wordCloud.selectionMode = "single";
-
-
-        // Bind datas
-        WinJS.xhr({ url: "words/words.csv" }).then(function (request) {
-            words = request.responseText.split("\r\n");
-            var listItems = new WinJS.Binding.List(words);;
-            wordCloud.itemDataSource = listItems.dataSource;
-            wordCloud.oniteminvoked = function (e) {
-                //http://code.msdn.microsoft.com/windowsapps/Navigation-sample-cf242faa/sourcecode?fileId=44084&pathId=1713588077
-                e.detail.itemPromise.then(function (item) {
-                    return WinJS.Navigation.navigate("/pages/detail/detail.html", item.data);
-                });
-            };
-        });
-
-
+        wordCloud.oniteminvoked = function (e) {
+            //http://code.msdn.microsoft.com/windowsapps/Navigation-sample-cf242faa/sourcecode?fileId=44084&pathId=1713588077
+            e.detail.itemPromise.then(function (item) {
+                return WinJS.Navigation.navigate("/pages/detail/detail.html", item.data);
+            });
+        };
+        wordCloud.itemDataSource = app.wordsList.dataSource;
     }
     function addShareContract() {
         //http://msdn.microsoft.com/en-us/library/windows/apps/hh758310.aspx

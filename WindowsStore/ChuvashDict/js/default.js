@@ -10,7 +10,7 @@
     var nav = WinJS.Navigation;
 
     app.onactivated = function (args) {
-        //set up the demos list (empty for now)
+        app.words = null;
         app.wordsList = null;
 
         //start loading the words
@@ -47,6 +47,10 @@
         // args.setPromise().
     };
 
+    app.onready = function (e) {
+        addSearchContract();
+    };
+
     app.onsettings = function(e) {
         e.detail.applicationcommands = {
             // Add the Privacy statement command. 
@@ -63,14 +67,35 @@
     function loadWordsAsync() {
         var promise = WinJS.xhr({ url: "words/words.csv" });
         promise.then(function (request) {
-            var words = request.responseText.split("\r\n");
-            app.wordsList = new WinJS.Binding.List(words);
+            app.words = request.responseText.split("\r\n");
+            app.wordsList = new WinJS.Binding.List(app.words);
             //.createGrouped(function (i) { return i.group; }, function (i) { return i.group; })
             //.createSorted(function (a, b) { return (a.toLowerCase() < b.toLowerCase() ? -1 : 1); });
 
 
         });
         return promise;
+    }
+
+    function addSearchContract() {
+        var searchPane = Windows.ApplicationModel.Search.SearchPane.getForCurrentView();
+
+        //make sure demos have been loaded and then make search terms out of their keywords
+        app.wordsLoaded.then(function () {
+            var keywords = app.words;
+
+            searchPane.onsuggestionsrequested = function (e) {
+                var matchingKeywords = keywords.filter(function (k) {
+                     return k.toLowerCase().match(new RegExp(e.queryText));
+                });
+                e.request.searchSuggestionCollection.appendQuerySuggestions(matchingKeywords);
+            };
+
+            searchPane.onquerysubmitted = function (e) {
+                WinJS.Navigation.navigate("/pages/home/home.html", { queryText: e.queryText });
+            };
+
+        });
     }
 
     app.start();

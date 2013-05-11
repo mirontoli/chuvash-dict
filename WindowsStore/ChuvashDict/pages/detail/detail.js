@@ -5,17 +5,21 @@
     var appViewState = Windows.UI.ViewManagement.ApplicationViewState;
     var nav = WinJS.Navigation;
     var ui = WinJS.UI;
+    var transfer = Windows.ApplicationModel.DataTransfer;
 
     var progressElement;
-    var list;
+    var explanationList;
+    var word;
     
     WinJS.UI.Pages.define("/pages/detail/detail.html", {
         // This function is called whenever a user navigates to this page. It
         // populates the page elements with the app's data.
         ready: function (element, options) {
-            var word = nav.state;
+            word = nav.state;
+            explanationList = document.getElementById("explanationList");
             updateTitle(word);
             getTranslation(word);
+            addShareContract();
         }
     });
     
@@ -83,7 +87,6 @@
             var html = '<div class="explanation">' + t.explanation + '</div>';
             explanationHtml += html;
         });
-        var explanationList = document.getElementById("explanationList");
         WinJS.Binding.processAll(explanationList, explanationHtml);
         // Add WinJS Control For Listview
         //var explanationList = document.getElementById("explanationList").winControl;
@@ -93,5 +96,21 @@
         //// Bind datas
         //var listItems = new WinJS.Binding.List(translations);;
         //explanationList.itemDataSource = listItems.dataSource;
+    }
+    
+    function addShareContract() {
+        //http://msdn.microsoft.com/en-us/library/windows/apps/hh758310.aspx
+        transfer.DataTransferManager.getForCurrentView().ondatarequested = function (e) {
+            //var item = store.getAt(basicFlipView.winControl.currentPage);
+            //var inputText = "hej";//'<a href="' + item.url + '"><img src="' + item.url + '" alt=""></a><br>This image is brought to you through Reddit Picture Browser. Windows 8 app and web app on repicbro.com';//q(".share #inputText").value;
+            var html = explanationList.innerHTML;
+            var url = "http://samah.chv.su/cgi-bin/s.cgi?a=s&word=" + word;
+            var appUrl = "http://apps.microsoft.com/windows/en-US/app/a004715c-768c-4f54-b38c-31f8f0ae4a69";
+            html += "<br><br>This word (<a href=" + url + "'>" + word +  "</a>) is shared through <a href='" + appUrl + "'>Chuvash Dictionary</a>, a Windows 8 app";
+            var htmlFormat = transfer.HtmlFormatHelper.createHtmlFormat(html);
+            e.request.data.setHtmlFormat(htmlFormat);
+            e.request.data.properties.title = "Chuvash Dictionary: " + word + " " + url; 
+            //e.request.data.setText(inputText);
+        };
     }
 })();

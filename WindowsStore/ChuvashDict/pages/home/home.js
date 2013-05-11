@@ -21,8 +21,7 @@
                     app.sessionState.homeScrollPosition = null;
                 }
             };
-            bindWordCloud();
-
+            bindWordCloud();           
 
         },
 

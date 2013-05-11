@@ -17,20 +17,20 @@
         ready: function (element, options) {
             word = nav.state;
             explanationList = document.getElementById("explanationList");
-            updateTitle(word);
-            getTranslation(word);
+            updateTitle();
+            getTranslation();
             addShareContract();
         }
     });
     
-    function updateTitle(word) {
+    function updateTitle() {
         var titleElement = document.querySelector(".detail .pagetitle");
         if (word && titleElement) {
 
             titleElement.innerText = word;
         }
     }
-    function getTranslation(word) {
+    function getTranslation() {
         showLoading(true);
         var k = encodeURI("http://samah.chv.su/cgi-bin/_export.cgi?id=" + word);
         WinJS.xhr({ url: k })
@@ -51,7 +51,6 @@
                     showResult(s.export.samahsem);
                 }
                 
-                //var result = s.export.samahsem[0].samah["#text"];
             }, function (error) {
                 showLoading(false);
                 showError("Some error occured in the transmission of the data");
@@ -88,21 +87,11 @@
             explanationHtml += html;
         });
         WinJS.Binding.processAll(explanationList, explanationHtml);
-        // Add WinJS Control For Listview
-        //var explanationList = document.getElementById("explanationList").winControl;
-        //explanationList.itemTemplate = document.getElementById("explanationTemplate");
-        //explanationList.selectionMode = "single";
-
-        //// Bind datas
-        //var listItems = new WinJS.Binding.List(translations);;
-        //explanationList.itemDataSource = listItems.dataSource;
     }
     
     function addShareContract() {
         //http://msdn.microsoft.com/en-us/library/windows/apps/hh758310.aspx
         transfer.DataTransferManager.getForCurrentView().ondatarequested = function (e) {
-            //var item = store.getAt(basicFlipView.winControl.currentPage);
-            //var inputText = "hej";//'<a href="' + item.url + '"><img src="' + item.url + '" alt=""></a><br>This image is brought to you through Reddit Picture Browser. Windows 8 app and web app on repicbro.com';//q(".share #inputText").value;
             var html = explanationList.innerHTML;
             var url = "http://samah.chv.su/cgi-bin/s.cgi?a=s&word=" + word;
             var appUrl = "http://apps.microsoft.com/windows/en-US/app/a004715c-768c-4f54-b38c-31f8f0ae4a69";
@@ -110,7 +99,6 @@
             var htmlFormat = transfer.HtmlFormatHelper.createHtmlFormat(html);
             e.request.data.setHtmlFormat(htmlFormat);
             e.request.data.properties.title = "Chuvash Dictionary: " + word + " " + url; 
-            //e.request.data.setText(inputText);
         };
     }
 })();

@@ -6,6 +6,7 @@
     var appViewState = Windows.UI.ViewManagement.ApplicationViewState;
     var nav = WinJS.Navigation;
     var ui = WinJS.UI;
+    var transfer = Windows.ApplicationModel.DataTransfer;
 
     //global words var
     var words = ["hej", "hå"];
@@ -22,7 +23,7 @@
                 }
             };
             bindWordCloud();           
-
+            addShareContract();
         },
 
         updateLayout: function () {
@@ -58,6 +59,14 @@
 
 
     }
-
+    function addShareContract() {
+        //http://msdn.microsoft.com/en-us/library/windows/apps/hh758310.aspx
+        transfer.DataTransferManager.getForCurrentView().ondatarequested = function (e) {
+            var html = "<div><h1><a href='http://bit.ly/ZQ2fDM'>Chuvash Dictionary</a></h1>Chuvash to Russian and Russian to Chuvash. In the future it can be extended to more languages. Traditionally the most dictionaries are Chuvash-Russian. It doesn't mean it is only useful for Russian speaking people. If you are intrested in Chuvash, for now you must use Russian. In the future, other dictionary sources will be added.</div>";
+            var htmlFormat = transfer.HtmlFormatHelper.createHtmlFormat(html);
+            e.request.data.setHtmlFormat(htmlFormat);
+            e.request.data.properties.title = "Check out the Chuvash Dictionary, windows 8 app http://bit.ly/ZQ2fDM";
+        };
+    }
 })();
 

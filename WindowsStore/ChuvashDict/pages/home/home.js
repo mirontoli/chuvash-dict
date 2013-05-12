@@ -11,10 +11,12 @@
     //global words var
     var words = app.words;
     var wordCloud;
+    var options;
 
     ui.Pages.define("/pages/home/home.html", {
 
-        ready: function (element, options) {
+        ready: function (element, o) {
+            options = o || {};
             wordCloud = document.getElementById("wordCloud").winControl;
             wordCloud.onloadingstatechanged = function() {
                 if (app.sessionState.homeScrollPosition && wordCloud.loadingState == "viewPortLoaded") {
@@ -48,7 +50,10 @@
                 return WinJS.Navigation.navigate("/pages/detail/detail.html", item.data);
             });
         };
-        wordCloud.itemDataSource = app.wordsList.dataSource;
+        var wordsList = !options.queryText ? app.wordsList : app.wordsList.createFiltered(function (k) {
+            return k.toLowerCase().match(new RegExp(options.queryText));
+        });
+        wordCloud.itemDataSource = wordsList.dataSource;
     }
     function addShareContract() {
         //http://msdn.microsoft.com/en-us/library/windows/apps/hh758310.aspx

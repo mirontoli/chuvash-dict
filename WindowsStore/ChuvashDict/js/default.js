@@ -68,8 +68,12 @@
         var promise = WinJS.xhr({ url: "words/words.csv" });
         promise.then(function (request) {
             app.words = request.responseText.split("\r\n");
-            app.wordsList = new WinJS.Binding.List(app.words);
-            //.createGrouped(function (i) { return i.group; }, function (i) { return i.group; })
+            app.wordsList = new WinJS.Binding.List(app.words)
+                .createGrouped(function(w) {
+                    return w ? w.slice(0, 1).toUpperCase() : "hej";
+                }, function(w) {
+                    return w ? w.slice(0, 1).toUpperCase() : "hej";
+                });
             //.createSorted(function (a, b) { return (a.toLowerCase() < b.toLowerCase() ? -1 : 1); });
 
 

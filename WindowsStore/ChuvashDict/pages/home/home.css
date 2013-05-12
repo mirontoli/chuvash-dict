@@ -4,14 +4,16 @@
 
 #wordCloud .win-item {
     box-sizing: border-box;
-    background-color: #6294ad;
-    color: white;
+    background-color: #6294ad;    
     width: 200px;
     height: 75px;
-    line-height: 75px;
     padding: 4px 8px;
     box-sizing: border-box;
     text-align: center;
+}
+#wordCloud .win-item h3 {
+    line-height: 70px;
+    color: white;
 }
 
 #alphabet {

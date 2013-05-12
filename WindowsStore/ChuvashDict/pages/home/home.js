@@ -41,8 +41,9 @@
     // This function is run once on page load
     function bindWordCloud() {
         // Add WinJS Control For Listview
-        wordCloud.template = document.getElementById("wordTemplate");
-        wordCloud.loadingBehavior = "incremental";
+        wordCloud.itemTemplate = document.getElementById("wordTemplate");
+        //wordCloud.itemHeaderTemplate = document.getElementById("headerTemplate");
+        //wordCloud.loadingBehavior = "incremental";
         wordCloud.selectionMode = "single";
         wordCloud.oniteminvoked = function (e) {
             //http://code.msdn.microsoft.com/windowsapps/Navigation-sample-cf242faa/sourcecode?fileId=44084&pathId=1713588077
@@ -50,10 +51,16 @@
                 return WinJS.Navigation.navigate("/pages/detail/detail.html", item.data);
             });
         };
-        var wordsList = !options.queryText ? app.wordsList : app.wordsList.createFiltered(function (k) {
-            return k.toLowerCase().match(new RegExp(options.queryText));
+
+        app.wordsLoaded.then(function() {
+            var wordsList = !options.queryText ? app.wordsList : app.wordsList.createFiltered(function(k) {
+                return k.toLowerCase().match(new RegExp(options.queryText));
+            });
+            wordCloud.itemDataSource = wordsList.dataSource;
+            wordCloud.groupDataSource = wordsList.groups.dataSource;
         });
-        wordCloud.itemDataSource = wordsList.dataSource;
+
+
     }
     function addShareContract() {
         //http://msdn.microsoft.com/en-us/library/windows/apps/hh758310.aspx

@@ -1,30 +1,18 @@
-﻿/*.homepage {
-    margin-left: 60px;
-}
-.win-backbutton {
-    float: left;
-}
-.pagetitle {
-
-}*/
-#wordCloud {
+﻿#wordCloud {
     height: 100%;
 }
 
-    #wordCloud .win-surface {
-    }
-
-    #wordCloud .win-item {
-        box-sizing: border-box;
-        background-color: #6294ad;
-        color: white;
-        width: 200px;
-        height: 75px;
-        line-height: 75px;
-        padding: 4px 8px;
-        box-sizing: border-box;
-        text-align: center;
-    }
+#wordCloud .win-item {
+    box-sizing: border-box;
+    background-color: #6294ad;
+    color: white;
+    width: 200px;
+    height: 75px;
+    line-height: 75px;
+    padding: 4px 8px;
+    box-sizing: border-box;
+    text-align: center;
+}
 
 #alphabet {
     padding: 10px;
@@ -37,7 +25,7 @@
     margin-left: 15px;
 }
 
-@media screen and (-ms-view-state: snapped) and (-ms-view-state: fullscreen-portrait) {
+@media screen and (-ms-view-state: snapped, fullscreen-portrait) {
     #alphabet .title {
         display: none;
     }

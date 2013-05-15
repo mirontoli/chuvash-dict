@@ -1,7 +1,7 @@
 Chuvash Dictionary for Windows Store
 ============
 
-The app is published on [Windows Store](http://bit.ly/ZQ2fDM). The main focus for this app is an explorative learning. You browse the word tiles and get translations for the words you like.
+The app is published on [Windows Store](http://bit.ly/ZQ2fDM). An early preview of the app can be seen on [youtube](http://www.youtube.com/watch?v=W6q8hrTL69M). The main focus for this app is an explorative learning. You browse the word tiles and get translations for the words you like.
 
 ## Release 1 (2013-05-10) ##
 

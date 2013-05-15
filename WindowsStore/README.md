@@ -10,11 +10,11 @@ The app is published on [Windows Store](http://bit.ly/ZQ2fDM). The main focus fo
 ## Release 2 (2013-05-14) ##
 In this release new functionality has been added:
 
-- Search and Filter through the Charm pane with suggestions
-- Share a word (from the detail view) 
-- Share the whole app (from the main view)
-- Chuvash alphabet as a reference (when swiping from above)
+- [#2](/mirontoli/chuvash-dict/issues/2) Search and Filter through the Charm pane with suggestions
+- [#1](/mirontoli/chuvash-dict/issues/1) Share a word (from the detail view) 
+- [#4](/mirontoli/chuvash-dict/issues/4) Share the whole app (from the main view)
+- [#8](/mirontoli/chuvash-dict/issues/8) Chuvash alphabet as a reference (when swiping from above)
 
 ## Release 3 (not published yet) ##
 
-- The word tiles are grouped by letters: #11
+- [#11](/mirontoli/chuvash-dict/issues/2) The word tiles are grouped by letters:

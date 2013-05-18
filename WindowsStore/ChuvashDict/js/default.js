@@ -62,18 +62,16 @@
         WinJS.UI.SettingsFlyout.populateSettings(e);
     };
 
-
+    app.wordsCreateGrouped = function(w) {
+        return w ? w.slice(0, 1).toUpperCase() : "";
+    };
 
     function loadWordsAsync() {
-        var promise = WinJS.xhr({ url: "words/words.csv" });
+        var promise = WinJS.xhr({ url: "words/words-part001.csv" });
         promise.then(function (request) {
             app.words = request.responseText.split("\r\n");
             app.wordsList = new WinJS.Binding.List(app.words)
-                .createGrouped(function(w) {
-                    return w ? w.slice(0, 1).toUpperCase() : "hej";
-                }, function(w) {
-                    return w ? w.slice(0, 1).toUpperCase() : "hej";
-                });
+                .createGrouped(app.wordsCreateGrouped, app.wordsCreateGrouped);
             //.createSorted(function (a, b) { return (a.toLowerCase() < b.toLowerCase() ? -1 : 1); });
 
 

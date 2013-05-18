@@ -1,6 +1,7 @@
 ﻿#contenthost {
     height: 100%;
     width: 100%;
+    background-color: #ffee00;
 }
 
 .fragment {
@@ -10,6 +11,7 @@
     display: -ms-grid;
     height: 100%;
     width: 100%;
+    
 }
 
     .fragment header[role=banner] {
@@ -24,10 +26,13 @@
             margin-top: 59px;
         }
 
-        .fragment header[role=banner] .titlearea {
-            -ms-grid-column: 3;
-            margin-top: 37px;
-        }
+.fragment header[role=banner] .titlearea {
+    -ms-grid-column: 3;
+    margin-top: 37px;
+    color: #cb0000;
+    font-family: Arial;
+    font-weight: bold;
+}
 
             .fragment header[role=banner] .titlearea .pagetitle {
                 width: calc(100% - 20px);

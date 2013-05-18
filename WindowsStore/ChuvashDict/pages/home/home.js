@@ -55,8 +55,8 @@
         app.wordsLoaded.then(function() {
             var wordsList = !options.queryText ? app.wordsList : app.wordsList.createFiltered(function(k) {
                 return k.toLowerCase().match(new RegExp(options.queryText));
-            });
-            wordCloud.itemDataSource = wordsList.dataSource;
+            }).createGrouped(app.wordsCreateGrouped, app.wordsCreateGrouped);;
+            wordCloud.itemDataSource = wordsList.dataSource;          
             wordCloud.groupDataSource = wordsList.groups.dataSource;
         });
 

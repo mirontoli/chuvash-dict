@@ -2,9 +2,17 @@
     height: 100%;
 }
 
+/* group letters */
+.win-groupheader {
+    color: #cb0000;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 30px;
+}
+
 #wordCloud .win-item {
     box-sizing: border-box;
-    background-color: #6294ad;    
+    background-color: #cb0000;    
     width: 200px;
     height: 75px;
     padding: 4px 8px;

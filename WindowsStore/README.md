@@ -3,6 +3,14 @@ Chuvash Dictionary for Windows Store
 
 The app is published on [Windows Store](http://bit.ly/ZQ2fDM). An early preview of the app can be seen on [youtube](http://www.youtube.com/watch?v=W6q8hrTL69M). The main focus for this app is an explorative learning. You browse the word tiles and get translations for the words you like.
 
+## Graphical profile ##
+The app uses the colors of the [Chuvash Flag](http://en.wikipedia.org/wiki/Flag_of_Chuvashia). The two main colors are used:
+
+- Yellow #fffe00
+- Purple #cb0000
+
+The symbol is the letter Ă (capital A breve) which is an additional letter in the [Cyrillic Chuvash Alphabet](http://en.wikipedia.org/wiki/Cyrillic_alphabets#Chuvash) and is one of the most common letters in Chuvash. The font face for this symbol is Arial Bold.
+
 ## Release 1 (2013-05-10) ##
 
 - Initial Release with basic tiles

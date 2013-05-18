@@ -25,4 +25,5 @@ In this release new functionality has been added:
 
 ## Release 3 (not published yet) ##
 
-- [#11](/mirontoli/chuvash-dict/issues/2) The word tiles are grouped by letters:
+- [#11](/mirontoli/chuvash-dict/issues/11) The word tiles are grouped by letters
+- [#14](/mirontoli/chuvash-dict/issues/14) Improve the graphical profile

@@ -3,11 +3,12 @@
 }
 
 /* group letters */
-.win-groupheader {
+.win-listview .win-groupheader {
     color: #cb0000;
     font-family: Arial;
     font-weight: bold;
     font-size: 30px;
+    padding-left: 5px;
 }
 
 #wordCloud .win-item {

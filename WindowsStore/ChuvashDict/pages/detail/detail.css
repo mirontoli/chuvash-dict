@@ -1,8 +1,11 @@
 ﻿.detail .progress {
     display: none;
 }
+.explanation {
+    font-size: 18px;
+}
 .detail [role=main] {
-    margin-left: 50px;
+    padding-left: 45px;
 }
 #error-section {
     font-size: 20px;

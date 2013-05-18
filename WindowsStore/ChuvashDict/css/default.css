@@ -44,6 +44,13 @@
         width: 100%;
     }
 
+/* #region winrt default overrides */
+.chuvash-dict .win-backbutton {
+    border-color: #cb0000;
+    color: #cb0000;
+}
+/* #endregion winrt default overrides */
+
 @media screen and (-ms-view-state: snapped) {
     .fragment header[role=banner] {
         -ms-grid-columns: auto 1fr;

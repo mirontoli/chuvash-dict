@@ -27,3 +27,4 @@ In this release new functionality has been added:
 
 - [#11](/mirontoli/chuvash-dict/issues/11) The word tiles are grouped by letters
 - [#14](/mirontoli/chuvash-dict/issues/14) Improve the graphical profile
+- [#12](https://github.com/mirontoli/chuvash-dict/issues/12) Sort all words according the Chuvash alphabet

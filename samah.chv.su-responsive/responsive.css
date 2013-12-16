@@ -1,0 +1,63 @@
+@media all and (max-width: 999px) {
+	#art-page-background-gradient {
+		min-width: 0;
+	}
+	.art-sheet {
+		width: 100%;
+	}
+	div.art-header {
+		width: 100%;
+	}
+	.art-logo {
+		top: 52px;
+	}
+    .art-content-layout {
+		display: block;
+		width: 100%;
+	}
+	div.art-content-layout-row {
+		display: block;
+	}
+	div.art-content-layout div.art-layout-cell, div.art-content-layout div.art-layout-cell div.art-content-layout div.art-layout-cel {
+		display: block;
+	}
+	div.art-content-layout-row {
+		display: flex;
+	}
+	.art-content-layout .art-content {
+		width: auto;
+	}
+	.art-content-layout .art-sidebar1 {
+		width: 248px;
+	}
+}
+@media all and (max-width: 399px) {
+	div.art-header {
+		height: 82px;
+	}
+	.art-logo {
+		width: 100%;
+		top: 52px;
+	}
+	h1.art-logo-name a, h1.art-logo-name a:link {
+		font-size: 24px;
+	}
+	/* no reason to have heading two times */
+	.art-post h2.art-postheader {
+		display: none;
+	}
+	/* remove label for search when little place */
+	.art-postcontent tbody > tr:first-child > td:first-child {
+		display: none;
+	}
+	div.art-content-layout-row {
+		display: block;
+	}
+	.art-content-layout .art-content {
+		width: 100%;
+	}
+	.art-content-layout .art-sidebar1 {
+		width: 100%;
+	}
+
+}

@@ -1,4 +1,4 @@
-@media all and (max-width: 999px) {
+@media all and (max-width: 1016px) {
 	#art-page-background-gradient {
 		min-width: 0;
 	}
@@ -9,12 +9,38 @@
 		width: 100%;
 	}
 	.art-logo {
+		width: 100%;
 		top: 52px;
+	}
+	.art-article table {
+		width: 100%;
 	}
     .art-content-layout {
 		display: block;
 		width: 100%;
 	}
+
+	.art-content-layout .art-sidebar1 {
+		width: 248px;
+	}
+	.art-postcontent hr {
+		display: none;
+	}
+	.art-footer-body {
+		background-color: #fcd873;
+		padding: 15px 0;
+	}
+}
+
+@media all and (max-width: 799px) {
+	/* remove label for search when little place */
+	.art-postcontent tbody > tr:first-child > td:first-child {
+		display: none;
+	}
+}
+
+/* make two columns into one */
+@media all and (max-width: 675px) {
 	div.art-content-layout-row {
 		display: block;
 	}
@@ -22,35 +48,6 @@
 		display: block;
 	}
 	div.art-content-layout-row {
-		display: flex;
-	}
-	.art-content-layout .art-content {
-		width: auto;
-	}
-	.art-content-layout .art-sidebar1 {
-		width: 248px;
-	}
-}
-@media all and (max-width: 399px) {
-	div.art-header {
-		height: 82px;
-	}
-	.art-logo {
-		width: 100%;
-		top: 52px;
-	}
-	h1.art-logo-name a, h1.art-logo-name a:link {
-		font-size: 24px;
-	}
-	/* no reason to have heading two times */
-	.art-post h2.art-postheader {
-		display: none;
-	}
-	/* remove label for search when little place */
-	.art-postcontent tbody > tr:first-child > td:first-child {
-		display: none;
-	}
-	div.art-content-layout-row {
 		display: block;
 	}
 	.art-content-layout .art-content {
@@ -58,6 +55,20 @@
 	}
 	.art-content-layout .art-sidebar1 {
 		width: 100%;
+	}
+}
+
+@media all and (max-width: 399px) {
+	div.art-header {
+		height: 82px;
+	}
+
+	h1.art-logo-name a, h1.art-logo-name a:link {
+		font-size: 24px;
+	}
+	/* no reason to have heading two times */
+	.art-post h2.art-postheader {
+		display: none;
 	}
 
 }

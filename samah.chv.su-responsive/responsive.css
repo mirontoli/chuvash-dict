@@ -1,3 +1,12 @@
+#responsive-menu {
+	position: absolute;
+	right: 5px;
+	top: 15px;
+	font-size: 30px;
+	cursor: pointer;
+	display: none;
+}
+
 @media all and (max-width: 1016px) {
 	#art-page-background-gradient {
 		min-width: 0;
@@ -8,10 +17,14 @@
 	div.art-header {
 		width: 100%;
 	}
+	div.art-header-jpeg {
+		width: 100%;
+	}
 	.art-logo {
 		width: 100%;
 		top: 52px;
 	}
+
 	.art-article table {
 		width: 100%;
 	}
@@ -60,14 +73,48 @@
 
 @media all and (max-width: 399px) {
 	div.art-header {
-		height: 82px;
+		height: 60px;
+	}
+	div.art-logo {
+		top: 10px;
+		
+	}
+	div.art-logo h1 {
+		margin-right: 50px;
 	}
 
 	h1.art-logo-name a, h1.art-logo-name a:link {
 		font-size: 24px;
 	}
+
+	#responsive-menu {
+		display: block;
+	}
+
+	.art-post {
+		margin: 0;
+	}
+	.art-post-body {
+		padding-top: 0;
+	}
 	/* no reason to have heading two times */
 	.art-post h2.art-postheader {
+		display: none;
+	}
+	.art-postcontent center {
+		display: none;
+		position: absolute;
+		background-color: #fcd873;
+		z-index: 3;
+		top: 15px;
+		padding: 30px 20px;
+		left: 0;
+		letter-spacing: 10px;
+		line-height: 300%;
+		text-decoration: none;
+		font-weight: bold;
+	}
+	.lang-switcher {
 		display: none;
 	}
 

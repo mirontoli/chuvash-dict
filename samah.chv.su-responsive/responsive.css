@@ -54,6 +54,9 @@
 
 /* make two columns into one */
 @media all and (max-width: 675px) {
+	p {
+		text-align: left;
+	}
 	div.art-content-layout-row {
 		display: block;
 	}
@@ -114,8 +117,10 @@
 		text-decoration: none;
 		font-weight: bold;
 	}
-	.lang-switcher {
+	#lang-switcher {
 		display: none;
+		position: absolute;
+		z-index: 3;
 	}
 
 }

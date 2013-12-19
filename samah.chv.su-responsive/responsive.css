@@ -73,6 +73,12 @@
 		width: 100%;
 	}
 }
+/* 
+	prevent font sizes blow up in iphone landscape
+http://www.sitepoint.com/forums/showthread.php?1048874-iPhone-landscape-view-blows-up-font-sizes */
+@media only screen and (min-width : 320px) and (max-width : 560px) {
+	body {-webkit-text-size-adjust: none;}
+}
 
 @media all and (max-width: 399px) {
 	div.art-header {
